@@ -1,0 +1,97 @@
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="HiLite()" />
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="NoHiLite()" />
+<PUBLIC:ATTACH EVENT="onmousedown" ONEVENT="OpenLink()" />
+<PUBLIC:ATTACH EVENT="oncontentready" ONEVENT="Ini()" />
+
+<SCRIPT LANGUAGE="JSCRIPT">
+	function Ini(){
+		if( element.tagName == "TD" ){
+			element.className = "ItemOFF";
+		}else{
+			element.className = "MenuOFF";
+		}
+	}
+	function HiLite(){
+		if( MenuFlag ) MenuFlag = false;
+		if( MenuDirection == 1 ){
+			if(element.tagName == "TR" ){
+				Name = element.parentElement.parentElement.id;
+				X = event.clientX - event.offsetX + element.clientWidth;
+				Y = event.clientY - event.offsetY;
+				if( event.srcElement.innerHTML.indexOf("<FONT") != -1 ){
+					X -= event.srcElement.previousSibling.clientWidth;
+				}
+				if( event.srcElement.innerHTML == "4" ){
+					X -= event.srcElement.parentElement.previousSibling.clientWidth;
+				}
+			}else{
+				Name = element.id;
+				X = event.clientX - event.offsetX + element.clientWidth;
+				Y = event.clientY - event.offsetY;
+			}
+		}else{
+			if(element.tagName == "TR" ){
+				Name = element.parentElement.parentElement.id;
+				X = event.clientX - event.offsetX + element.clientWidth;
+				Y = event.clientY - event.offsetY;
+				if( event.srcElement.innerHTML.indexOf("<FONT") != -1 ){
+					X -= event.srcElement.previousSibling.clientWidth;
+				}
+				if( event.srcElement.innerHTML == "4" ){
+					X -= event.srcElement.parentElement.previousSibling.clientWidth;
+				}
+			}else{
+				Name = element.id;
+				X = event.clientX - event.offsetX;
+				Y = event.clientY - event.offsetY + element.clientHeight;
+			}
+		}
+		if( element.tagName == "TD" ){
+			element.className = "ItemON";
+		}else{
+			element.className = "MenuON";
+		}
+		ShowMenu(element.name.substr(1,3), Name.replace("#",""), X + FixX, Y + FixY );
+		if( ActiveItem != null && element.tagName == "TD" ){
+			if( ActiveItem != element ) ActiveItem.className = "ItemOFF";
+		}
+	}
+	function NoHiLite(){
+		if( element.tagName != "TD" ){
+			element.className = "MenuOFF";
+		}else{
+			ActiveItem = element;
+			//這行是讓父選單一離開滑鼠的駐點後就把HiLite拿掉
+			//element.className = "ItemOFF";
+		}
+		MenuFlag = true;
+		//這行是讓選單一離開滑鼠的駐點後就消失
+		if( HideType == 1 ) setTimeout( "clock()", 1000);
+	}
+	function OpenLink(){
+		var strURL = "";
+		if( element.tagName == "TR" ){
+			TempArr = element.name.split("#");
+			if( TempArr.length > 2 ){
+				for( i = 0 ; i < TempArr.length-1 ; i++ ){
+					strURL += TempArr[i] + "#";
+				}
+				strURL = strURL.slice(0,-1)
+				OpenHyperLink( strURL, TempArr[i] );
+			}else{
+				strURL = TempArr[0];
+				if( strURL != "" && strURL.indexOf("#m") != 0 ){
+					OpenHyperLink( strURL, TempArr[1] );
+				}else{
+					return false;
+				}
+			}
+		}else{
+			TempArr = element.name.split("#");
+			if( TempArr[0] != "" ) OpenHyperLink( TempArr[0], TempArr[1] );
+		}
+		if( strURL != "" ){
+			HideMenu(true);
+		}
+	}
+</SCRIPT>

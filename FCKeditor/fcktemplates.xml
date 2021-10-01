@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ * FCKeditor - The text editor for internet
+ * Copyright (C) 2003-2006 Frederico Caldeira Knabben
+ * 
+ * Licensed under the terms of the GNU Lesser General Public License:
+ * 		http://www.opensource.org/licenses/lgpl-license.php
+ * 
+ * For further information visit:
+ * 		http://www.fckeditor.net/
+ * 
+ * "Support Open Source software. What about a donation today?"
+ * 
+ * File Name: fcktemplates.xml
+ * 	This is the sample templates definitions file. It makes the "templates" 
+ * 	command completely customizable.
+ * 	See FCKConfig.TemplatesXmlPath in the configuration file.
+ * 
+ * File Authors:
+ * 		Frederico Caldeira Knabben (fredck@fckeditor.net)
+-->
+<Templates imagesBasePath="fck_template/images/">
+	<Template title="圖文介紹文章" image="template1.gif">
+		<Description>一個包含主圖片、標題、文字的樣版.</Description>
+		<Html>
+			<![CDATA[
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+				    <td>
+				    	<img style="MARGIN-RIGHT: 10px" height="100" alt="" width="100" align="left"/>
+						<h3>在這裡輸入標題</h3>
+						在這裡輸入內文
+				    </td>
+				  </tr>
+				</table>
+				<BR />
+			]]>
+		</Html>
+	</Template>
+ 
+</Templates>

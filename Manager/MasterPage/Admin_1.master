@@ -1,0 +1,142 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin_1.master.cs" Inherits="Admin_MasterPage" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html  >
+<head runat="server">
+    <title>管理後台</title>
+    <link href="/Manager/css/StyleGreen.css" rel="stylesheet" type="text/css" />
+
+    <script language="javascript" src="/Manager/script/Global.js"> </script>
+
+    <link href="/css.css" type="text/css" rel="stylesheet" />
+
+    <script language="javascript">
+	var FixX = -3;					//X座標修正係數
+	var FixY = -3;					//Y座標修正係數
+	var AdjustWidth = 10;			//選單的寬度調整係數
+	var MenuType = 1;				//主選單的類型，0為自訂主選單，1為一般，2為有「|」分隔
+	var MenuDirection = 0;			//選單的方向，0為水平選單，1為垂直選單
+	var HideType = 0;				//選單消失的方式，0為在網頁按左鍵後消失，1為離開選單後消失
+	
+	var HTC_Location = "/Manager/script/MenuMaster/toolbar.htc";
+	
+	function OpenHyperLink( URLstr, Target ){
+		if( "blank,parent,self,top,search".indexOf( Target ) != -1 ) Target = "_" + Target;
+		window.open( URLstr, Target );
+	}
+    </script>
+
+    <script language="javascript" src="/Manager/script/MenuMaster/menu.js"> </script>
+
+    <script language="javascript" src="/Manager/script/MenuMaster/MenuMaster.js"> </script>
+
+    <style type="text/css">A:link {
+	CURSOR: hand; COLOR: #003399; TEXT-DECORATION: none
+}
+A:visited {
+	CURSOR: hand; COLOR: #003399; TEXT-DECORATION: none
+}
+A:active {
+	CURSOR: hand; COLOR: #003399; TEXT-DECORATION: none
+}
+A:hover {
+	CURSOR: hand; COLOR: #003399; TEXT-DECORATION: underline
+}
+.Toolbar {
+	BACKGROUND: #f2f3f1
+}
+.Menu {
+	BORDER-RIGHT: #aca899 1px solid; BORDER-TOP: #aca899 1px solid; BORDER-LEFT: #aca899 1px solid; BORDER-BOTTOM: #aca899 1px solid
+}
+.MenuOFF {
+	FONT-SIZE: 9pt; BACKGROUND: #ffffff; CURSOR: default; COLOR: black; FONT-FAMILY: verdana; HEIGHT: 20px
+}
+.MenuON {
+	FONT-SIZE: 9pt; BACKGROUND: #316ac5; CURSOR: default; COLOR: white; FONT-FAMILY: verdana; HEIGHT: 20px
+}
+.ItemOFF {
+	BORDER-RIGHT: #f2f3f1 1px solid; BORDER-TOP: #f2f3f1 1px solid; FONT-SIZE: 9pt; BACKGROUND: #f2f3f1; BORDER-LEFT: #f2f3f1 1px solid; CURSOR: default; COLOR: black; BORDER-BOTTOM: #f2f3f1 1px solid; FONT-FAMILY: verdana; HEIGHT: 20px
+}
+.ItemON {
+	BORDER-RIGHT: #316ac5 1px solid; BORDER-TOP: #316ac5 1px solid; FONT-SIZE: 9pt; BACKGROUND: #316ac5; BORDER-LEFT: #316ac5 1px solid; CURSOR: default; COLOR: white; BORDER-BOTTOM: #316ac5 1px solid; FONT-FAMILY: verdana; HEIGHT: 20px
+}
+</style>
+    <meta content="MSHTML 6.00.5730.11" name="GENERATOR">
+</head>
+<body onmousedown="HideMenu(false)" onload="IniMenu()">
+    <form id="form1" runat="server">
+        <div>
+        <DIV id=ToolbarBG>
+            <TABLE id=Toolbar cellSpacing=1 cellPadding=0 border=0>
+              <TBODY>
+              <TR></TR></TBODY></TABLE></DIV>
+            <br />
+            <table id="Table2" cellspacing="0" cellpadding="0" width="790" border="0">
+                <tr>
+                    <td align="right">
+                        &nbsp;登入身分：
+                        <asp:LoginName ID="LoginName1" runat="server" />
+                        &nbsp; (<asp:LoginStatus ID="LoginStatus1" runat="server" LoginText="登 入" LogoutText="登 出" />
+                        )
+                    </td>
+                </tr>
+            </table>
+            <table class="MainTableBorder" id="Table5" cellspacing="1" cellpadding="3" border="0">
+                <tr>
+                    <td class="MainTitle" style="height: 23px" height="23">
+                        <font face="新細明體">&nbsp;網站管理後台 </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#f0f4e0" align="center">
+                        <font face="新細明體">&nbsp;
+                            <table id="Table11" cellspacing="0" cellpadding="0" width="760" align="center" border="0">
+                                <tr>
+                                    <td align="left" style="height: 12px">
+                                        <asp:SiteMapPath ID="SiteMapPath1" runat="server" RenderCurrentNodeAsLink="True">
+                                        </asp:SiteMapPath>
+                                        &nbsp;
+                                    </td>
+                                    <td align="right" style="height: 12px">
+                                    </td>
+                                </tr>
+                            </table>
+                            <p>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                    <span style="font-size: 16px; color: #ffffff; background-color: #669933"><span style="color: #000000;
+                                        background-color: #ffffff"></span>
+                                        <table id="table1" align="center" border="0" cellpadding="3" cellspacing="1" class="tableBorder"
+                                            style="color: #000000; background-color: #ffffff" width="790">
+                                            <tr>
+                                                <td id="tabletitlelink" align="left" class="TH" height="25">
+                                                    <b>列表</b>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-weight: bold">
+                                                <td align="right" class="Forumrow" style="height: 28px">
+                                                    <font face="新細明體">&nbsp; </font>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-weight: bold">
+                                                <td class="Forumrow">
+                                                    <font face="新細明體"></font>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-weight: bold">
+                                                <td class="Forumrow" style="height: 30px">
+                                                    <font face="新細明體"></font><font face="新細明體" style="background-color: #ffffff"></font>
+                                                    <br />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </span>
+                                </asp:ContentPlaceHolder>
+                            </p>
+                        </font>
+                    </td>
+                </tr>
+            </table>
+            <iframe name="nosee" width="0" height="0"></iframe>
+        </div>
+    </form>
+</body>
+</html>

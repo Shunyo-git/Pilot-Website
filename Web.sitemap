@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="~/index.aspx" title="網站首頁"  description="曜亞國際網站首頁" roles="*"  >
+
+		<siteMapNode title="管理後台" url="~/Manager/Index.aspx" description="網站設定及管理後台" roles="*" >
+
+			<siteMapNode title="商品特區" url="~/Manager/ProductList.aspx" description="商品列表"  >
+				<siteMapNode title="新增與修改" url="~/Manager/ProductModify.aspx" description="商品新增與修改"  />
+				<siteMapNode title="顏色圖檔管理" url="~/Manager/ProductColor.aspx" description="商品顏色圖檔新增與修改"  />
+				<siteMapNode title="詳細內容" url="~/Manager/ProductDetail.aspx" description="商品詳細內容"/>
+			</siteMapNode>
+
+			<siteMapNode title="客服信件管理" url="~/Manager/MessageList.aspx" description="客服信件列表"  >
+				<siteMapNode title="信件內容" url="~/Manager/MessageModify.aspx" description="客服信件內容"    />
+			</siteMapNode>
+
+			<siteMapNode title="會員管理"  url="~/Manager/MemberList.aspx"  description="會員列表" >
+				<siteMapNode title="會員內容" url="~/Manager/MemberDetail.aspx" description="會員詳細內容"/>
+			</siteMapNode>
+
+			<siteMapNode title="文具大街" url="~/Manager/StoreList.aspx" description="文具大街列表"  >
+				<siteMapNode title="新增與修改" url="~/Manager/StoreModify.aspx" description="文具大街新增與修改"  />
+				<siteMapNode title="詳細內容" url="~/Manager/StoreDetail.aspx" description="文具大街詳細內容"/>
+			</siteMapNode>
+
+			<siteMapNode title="商品記事" url="~/Manager/NewsList.aspx" description="商品記事列表"  >
+				<siteMapNode title="新增與修改" url="~/Manager/NewsModify.aspx" description="商品記事新增與修改"  />
+				<siteMapNode title="詳細內容" url="~/Manager/NewsDetail.aspx" description="商品記事詳細內容"/>
+			</siteMapNode>
+
+			<siteMapNode title="進廣告" url="~/Manager/CFList.aspx" description="廣告列表"  >
+				<siteMapNode title="新增與修改" url="~/Manager/CFModify.aspx" description="廣告新增與修改"  />
+				<siteMapNode title="詳細內容" url="~/Manager/CFDetail.aspx" description="廣告詳細內容"/>
+			</siteMapNode>
+			<siteMapNode title="下載專區" url="~/Manager/WallpaperList.aspx" description="下載列表"  >
+				<siteMapNode title="新增與修改" url="~/Manager/WallpaperModify.aspx" description="下載新增與修改"  />
+				<siteMapNode title="詳細內容" url="~/Manager/WallpaperDetail.aspx" description="下載詳細內容"/>
+			</siteMapNode>
+
+			<siteMapNode title="百樂主打星" url="~/Manager/StarList.aspx" description="百樂主打星列表"  >
+				<siteMapNode title="新增與修改" url="~/Manager/StarModify.aspx" description="百樂主打星修改"  />
+				<siteMapNode title="詳細內容" url="~/Manager/StarDetail.aspx" description="百樂主打星詳細內容"/>
+			</siteMapNode>
+			 
+		</siteMapNode>
+		
+		
+	</siteMapNode>
+</siteMap>
